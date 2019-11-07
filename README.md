@@ -1,18 +1,3 @@
-# Debezium Vagrant Box for Oracle DB
-
-This is a Vagrant configuration for setting up a virtual machine based on Fedora 27, containing
-an Oracle DB instance for testing.
-Note that you'll need to download the Oracle installation yourself in order for preparing the testing environment.
-
-[Ansible](http://docs.ansible.com/ansible/latest/index.html) is used for provisioning the VM, see _playbook.yml_ for the complete set-up.
-
-## Preparations
-
-Make sure to have the following installed:
-
-* [VirtualBox](https://www.virtualbox.org/)
-* [Vagrant](https://www.vagrantup.com/)
-
 ## Installation
 
 Clone this repository:
@@ -21,28 +6,10 @@ Clone this repository:
 git clone https://github.com/debezium/oracle-vagrant-box.git
 ```
 
-Download the Oracle [installation file](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html) and provide it within the _data_ directory.
+Download the Oracle [installation file](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html) and provide it within the _data_ directory. Please ensure to download 12.2.0.1 version of Oracle binary file since Debezium 0.10 connector is tested only with Oracle 12c(12.2.0.1)
 
-Change into the project directory, and bootstrap the VM:
 
-```
-cd oracle-vagrant-box
-vagrant up
-```
 
-_If you get the error `Vagrant was unable to mount VirtualBox shared folders. This is usually because the filesystem "vboxsf" is not available.` then run :_
-
-```
-vagrant plugin install vagrant-vbguest
-vagrant reload
-vagrant provision
-```
-
-Now SSH into the VM: 
-
-```
-vagrant ssh
-```
 
 
 ## Setting up Oracle DB
